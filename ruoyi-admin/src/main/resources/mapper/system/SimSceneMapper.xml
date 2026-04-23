@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.SimSceneMapper">
+
+    <resultMap id="SimSceneResult" type="SimScene">
+        <result property="sceneId" column="scene_id"/>
+        <result property="sceneName" column="scene_name"/>
+        <result property="sceneType" column="scene_type"/>
+        <result property="description" column="description"/>
+        <result property="mapUrl" column="map_url"/>
+        <result property="weatherConditions" column="weather_conditions"/>
+        <result property="seaConditions" column="sea_conditions"/>
+        <result property="status" column="status"/>
+        <result property="remark" column="remark"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="delFlag" column="del_flag"/>
+    </resultMap>
+
+    <sql id="selectSimSceneVo">
+        select scene_id, scene_name, scene_type, description, map_url, weather_conditions, sea_conditions,
+               status, remark, create_by, create_time, update_by, update_time, del_flag
+        from sim_scene
+    </sql>
+
+    <select id="selectSimSceneList" parameterType="SimScene" resultMap="SimSceneResult">
+        <include refid="selectSimSceneVo"/>
+        <where>
+            <if test="sceneName != null and sceneName != ''">
+                and scene_name like concat('%', #{sceneName}, '%')
+            </if>
+            <if test="sceneType != null and sceneType != ''">
+                and scene_type = #{sceneType}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            and del_flag = '0'
+        </where>
+        order by scene_id desc
+    </select>
+
+    <select id="selectSimSceneBySceneId" parameterType="Long" resultMap="SimSceneResult">
+        <include refid="selectSimSceneVo"/>
+        where scene_id = #{sceneId}
+    </select>
+
+    <insert id="insertSimScene" parameterType="SimScene" useGeneratedKeys="true" keyProperty="sceneId">
+        insert into sim_scene
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sceneName != null and sceneName != ''">scene_name,</if>
+            <if test="sceneType != null and sceneType != ''">scene_type,</if>
+            <if test="description != null and description != ''">description,</if>
+            <if test="mapUrl != null and mapUrl != ''">map_url,</if>
+            <if test="weatherConditions != null and weatherConditions != ''">weather_conditions,</if>
+            <if test="seaConditions != null and seaConditions != ''">sea_conditions,</if>
+            <if test="status != null and status != ''">status,</if>
+            <if test="remark != null and remark != ''">remark,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null and delFlag != ''">del_flag,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sceneName != null and sceneName != ''">#{sceneName},</if>
+            <if test="sceneType != null and sceneType != ''">#{sceneType},</if>
+            <if test="description != null and description != ''">#{description},</if>
+            <if test="mapUrl != null and mapUrl != ''">#{mapUrl},</if>
+            <if test="weatherConditions != null and weatherConditions != ''">#{weatherConditions},</if>
+            <if test="seaConditions != null and seaConditions != ''">#{seaConditions},</if>
+            <if test="status != null and status != ''">#{status},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSimScene" parameterType="SimScene">
+        update sim_scene
+        <trim prefix="set" suffixOverrides=",">
+            <if test="sceneName != null and sceneName != ''">scene_name = #{sceneName},</if>
+            <if test="sceneType != null and sceneType != ''">scene_type = #{sceneType},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="mapUrl != null">map_url = #{mapUrl},</if>
+            <if test="weatherConditions != null">weather_conditions = #{weatherConditions},</if>
+            <if test="seaConditions != null">sea_conditions = #{seaConditions},</if>
+            <if test="status != null and status != ''">status = #{status},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null and delFlag != ''">del_flag = #{delFlag},</if>
+        </trim>
+        where scene_id = #{sceneId}
+    </update>
+
+    <delete id="deleteSimSceneBySceneId" parameterType="Long">
+        delete from sim_scene where scene_id = #{sceneId}
+    </delete>
+
+    <delete id="deleteSimSceneBySceneIds" parameterType="Long">
+        delete from sim_scene where scene_id in
+        <foreach collection="array" item="sceneId" open="(" separator="," close=")">
+            #{sceneId}
+        </foreach>
+    </delete>
+
+</mapper>

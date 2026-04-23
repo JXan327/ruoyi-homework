@@ -1,0 +1,128 @@
+log.js:24 [HMR] Waiting for update signal from WDS...
+vue.runtime.esm.js:8473 Download the Vue Devtools extension for a better development experience:
+https://github.com/vuejs/vue-devtools
+performance.js:93 === 页面性能指标 ===
+performance.js:94 加载时间: N/A ms
+performance.js:95 DOM加载完成时间: 2031.00 ms
+performance.js:96 首次绘制时间: 1256 ms
+performance.js:97 首次内容绘制时间: 1256 ms
+performance.js:101 === 资源加载指标 ===
+vue-router.esm.js:16 [vue-router] router.addRoutes() is deprecated and has been removed in Vue Router 4. Use router.addRoute() instead.
+warn @ vue-router.esm.js:16
+vue-router.esm.js:16 [vue-router] router.addRoutes() is deprecated and has been removed in Vue Router 4. Use router.addRoute() instead.
+warn @ vue-router.esm.js:16
+vue-router.esm.js:16 [vue-router] Duplicate named routes definition: { name: "Airport", path: "/tool/airport" }
+warn @ vue-router.esm.js:16
+vue-router.esm.js:16 [vue-router] Duplicate named routes definition: { name: "Airport", path: "/tool/airport" }
+warn @ vue-router.esm.js:16
+vue-router.esm.js:16 [vue-router] Non-nested routes must include a leading slash character. Fix the following routes: 
+- http://ruoyi.vip
+warn @ vue-router.esm.js:16
+vue-router.esm.js:16 [vue-router] <router-link>'s tag prop is deprecated and has been removed in Vue Router 4. Use the v-slot API to remove this warning: https://next.router.vuejs.org/guide/migration/#removal-of-event-and-tag-props-in-router-link.
+warn @ vue-router.esm.js:16
+performance.js:93 === 页面性能指标 ===
+performance.js:94 加载时间: 2032.00 ms
+performance.js:95 DOM加载完成时间: 2031.00 ms
+performance.js:96 首次绘制时间: 1256 ms
+performance.js:97 首次内容绘制时间: 1256 ms
+performance.js:101 === 资源加载指标 ===
+errorHandler.js:30 [Unhandled Rejection] Error: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.uav_boat' doesn't exist
+### The error may exist in file [E:\work\codeart\fa20260305\fd20260416\RuoYi-Vue-master\ruoyi-admin\target\classes\mapper\system\UavBoatMapper.xml]
+### The error may involve com.ruoyi.system.mapper.UavBoatMapper.selectUavBoatList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT count(0) FROM uav_boat WHERE del_flag = '0'
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.uav_boat' doesn't exist
+; bad SQL grammar []
+    at exports.default (request.js:97:1)
+value @ errorHandler.js:30
+request.js:97 Uncaught (in promise) Error: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.uav_boat' doesn't exist
+### The error may exist in file [E:\work\codeart\fa20260305\fd20260416\RuoYi-Vue-master\ruoyi-admin\target\classes\mapper\system\UavBoatMapper.xml]
+### The error may involve com.ruoyi.system.mapper.UavBoatMapper.selectUavBoatList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT count(0) FROM uav_boat WHERE del_flag = '0'
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.uav_boat' doesn't exist
+; bad SQL grammar []
+    at exports.default (request.js:97:1)
+errorHandler.js:30 [Unhandled Rejection] Error: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.sim_scene' doesn't exist
+### The error may exist in file [E:\work\codeart\fa20260305\fd20260416\RuoYi-Vue-master\ruoyi-admin\target\classes\mapper\system\SimSceneMapper.xml]
+### The error may involve com.ruoyi.system.mapper.SimSceneMapper.selectSimSceneList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT count(0) FROM sim_scene WHERE del_flag = '0'
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.sim_scene' doesn't exist
+; bad SQL grammar []
+    at exports.default (request.js:97:1)
+value @ errorHandler.js:30
+request.js:97 Uncaught (in promise) Error: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.sim_scene' doesn't exist
+### The error may exist in file [E:\work\codeart\fa20260305\fd20260416\RuoYi-Vue-master\ruoyi-admin\target\classes\mapper\system\SimSceneMapper.xml]
+### The error may involve com.ruoyi.system.mapper.SimSceneMapper.selectSimSceneList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT count(0) FROM sim_scene WHERE del_flag = '0'
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.sim_scene' doesn't exist
+; bad SQL grammar []
+    at exports.default (request.js:97:1)
+errorHandler.js:30 [Unhandled Rejection] Error: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.task' doesn't exist
+### The error may exist in file [E:\work\codeart\fa20260305\fd20260416\RuoYi-Vue-master\ruoyi-admin\target\classes\mapper\system\TaskMapper.xml]
+### The error may involve com.ruoyi.system.mapper.TaskMapper.selectTaskList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT count(0) FROM task WHERE del_flag = '0'
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.task' doesn't exist
+; bad SQL grammar []
+    at exports.default (request.js:97:1)
+value @ errorHandler.js:30
+request.js:97 Uncaught (in promise) Error: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.task' doesn't exist
+### The error may exist in file [E:\work\codeart\fa20260305\fd20260416\RuoYi-Vue-master\ruoyi-admin\target\classes\mapper\system\TaskMapper.xml]
+### The error may involve com.ruoyi.system.mapper.TaskMapper.selectTaskList-Inline
+### The error occurred while setting parameters
+### SQL: SELECT count(0) FROM task WHERE del_flag = '0'
+### Cause: java.sql.SQLSyntaxErrorException: Table 'ry-vue.task' doesn't exist
+; bad SQL grammar []
+    at exports.default (request.js:97:1)
+vue.runtime.esm.js:619 [Vue warn]: Property or method "getList" is not defined on the instance but referenced during render. Make sure that this property is reactive, either in the data option, or for class-based components, by initializing the property. See: https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties.
+
+found in
+
+---> <Simulation> at src/views/system/simulation/index.vue
+       <AppMain> at src/layout/components/AppMain.vue
+         <Layout> at src/layout/index.vue
+           <App> at src/App.vue
+             <Root>
+(匿名) @ vue.runtime.esm.js:619
+vue.runtime.esm.js:619 [Vue warn]: Property or method "getList" is not defined on the instance but referenced during render. Make sure that this property is reactive, either in the data option, or for class-based components, by initializing the property. See: https://vuejs.org/v2/guide/reactivity.html#Declaring-Reactive-Properties.
+
+found in
+
+---> <Simulation> at src/views/system/simulation/index.vue
+       <AppMain> at src/layout/components/AppMain.vue
+         <Layout> at src/layout/index.vue
+           <App> at src/App.vue
+             <Root>
+(匿名) @ vue.runtime.esm.js:619
+vue.runtime.esm.js:619 [Vue warn]: Invalid handler for event "queryTable": got undefined
+
+found in
+
+---> <RightToolbar> at src/components/RightToolbar/index.vue
+       <ElRow>
+         <Simulation> at src/views/system/simulation/index.vue
+           <AppMain> at src/layout/components/AppMain.vue
+             <Layout> at src/layout/index.vue
+               <App> at src/App.vue
+                 <Root>
+(匿名) @ vue.runtime.esm.js:619
+vue.runtime.esm.js:619 [Vue warn]: Invalid handler for event "pagination": got undefined
+
+found in
+
+---> <Pagination> at src/components/Pagination/index.vue
+       <Simulation> at src/views/system/simulation/index.vue
+         <AppMain> at src/layout/components/AppMain.vue
+           <Layout> at src/layout/index.vue
+             <App> at src/App.vue
+               <Root>
+(匿名) @ vue.runtime.esm.js:619

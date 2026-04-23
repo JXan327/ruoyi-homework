@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.system.mapper.UavBoatMapper">
+
+    <resultMap id="UavBoatResult" type="UavBoat">
+        <result property="boatId" column="boat_id"/>
+        <result property="boatCode" column="boat_code"/>
+        <result property="boatName" column="boat_name"/>
+        <result property="boatType" column="boat_type"/>
+        <result property="airportId" column="airport_id"/>
+        <result property="longitude" column="longitude"/>
+        <result property="latitude" column="latitude"/>
+        <result property="speed" column="speed"/>
+        <result property="course" column="course"/>
+        <result property="status" column="status"/>
+        <result property="onlineStatus" column="online_status"/>
+        <result property="remark" column="remark"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="delFlag" column="del_flag"/>
+    </resultMap>
+
+    <sql id="selectUavBoatVo">
+        select boat_id, boat_code, boat_name, boat_type, airport_id, longitude, latitude, speed, course,
+               status, online_status, remark, create_by, create_time, update_by, update_time, del_flag
+        from uav_boat
+    </sql>
+
+    <select id="selectUavBoatList" parameterType="UavBoat" resultMap="UavBoatResult">
+        <include refid="selectUavBoatVo"/>
+        <where>
+            <if test="boatCode != null and boatCode != ''">
+                and boat_code = #{boatCode}
+            </if>
+            <if test="boatName != null and boatName != ''">
+                and boat_name like concat('%', #{boatName}, '%')
+            </if>
+            <if test="boatType != null and boatType != ''">
+                and boat_type = #{boatType}
+            </if>
+            <if test="airportId != null">
+                and airport_id = #{airportId}
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+            <if test="onlineStatus != null and onlineStatus != ''">
+                and online_status = #{onlineStatus}
+            </if>
+            and del_flag = '0'
+        </where>
+        order by boat_id desc
+    </select>
+
+    <select id="selectUavBoatByBoatId" parameterType="Long" resultMap="UavBoatResult">
+        <include refid="selectUavBoatVo"/>
+        where boat_id = #{boatId}
+    </select>
+
+    <insert id="insertUavBoat" parameterType="UavBoat" useGeneratedKeys="true" keyProperty="boatId">
+        insert into uav_boat
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="boatCode != null and boatCode != ''">boat_code,</if>
+            <if test="boatName != null and boatName != ''">boat_name,</if>
+            <if test="boatType != null and boatType != ''">boat_type,</if>
+            <if test="airportId != null">airport_id,</if>
+            <if test="longitude != null">longitude,</if>
+            <if test="latitude != null">latitude,</if>
+            <if test="speed != null">speed,</if>
+            <if test="course != null">course,</if>
+            <if test="status != null and status != ''">status,</if>
+            <if test="onlineStatus != null and onlineStatus != ''">online_status,</if>
+            <if test="remark != null and remark != ''">remark,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="delFlag != null and delFlag != ''">del_flag,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="boatCode != null and boatCode != ''">#{boatCode},</if>
+            <if test="boatName != null and boatName != ''">#{boatName},</if>
+            <if test="boatType != null and boatType != ''">#{boatType},</if>
+            <if test="airportId != null">#{airportId},</if>
+            <if test="longitude != null">#{longitude},</if>
+            <if test="latitude != null">#{latitude},</if>
+            <if test="speed != null">#{speed},</if>
+            <if test="course != null">#{course},</if>
+            <if test="status != null and status != ''">#{status},</if>
+            <if test="onlineStatus != null and onlineStatus != ''">#{onlineStatus},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="delFlag != null and delFlag != ''">#{delFlag},</if>
+        </trim>
+    </insert>
+
+    <update id="updateUavBoat" parameterType="UavBoat">
+        update uav_boat
+        <trim prefix="set" suffixOverrides=",">
+            <if test="boatCode != null and boatCode != ''">boat_code = #{boatCode},</if>
+            <if test="boatName != null and boatName != ''">boat_name = #{boatName},</if>
+            <if test="boatType != null and boatType != ''">boat_type = #{boatType},</if>
+            <if test="airportId != null">airport_id = #{airportId},</if>
+            <if test="longitude != null">longitude = #{longitude},</if>
+            <if test="latitude != null">latitude = #{latitude},</if>
+            <if test="speed != null">speed = #{speed},</if>
+            <if test="course != null">course = #{course},</if>
+            <if test="status != null and status != ''">status = #{status},</if>
+            <if test="onlineStatus != null and onlineStatus != ''">online_status = #{onlineStatus},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="delFlag != null and delFlag != ''">del_flag = #{delFlag},</if>
+        </trim>
+        where boat_id = #{boatId}
+    </update>
+
+    <delete id="deleteUavBoatByBoatId" parameterType="Long">
+        delete from uav_boat where boat_id = #{boatId}
+    </delete>
+
+    <delete id="deleteUavBoatByBoatIds" parameterType="Long">
+        delete from uav_boat where boat_id in
+        <foreach collection="array" item="boatId" open="(" separator="," close=")">
+            #{boatId}
+        </foreach>
+    </delete>
+
+</mapper>
