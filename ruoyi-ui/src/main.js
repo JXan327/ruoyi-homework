@@ -13,6 +13,7 @@ import router from './router'
 import directive from './directive' // directive
 import plugins from './plugins' // plugins
 import { download } from '@/utils/request'
+import ruoyiMixin from '@/mixins/ruoyi' // 全局工具方法混入
 
 import './assets/icons' // icon
 import './permission' // permission control
@@ -45,6 +46,9 @@ Vue.component('Editor', Editor)
 Vue.component('FileUpload', FileUpload)
 Vue.component('ImageUpload', ImageUpload)
 Vue.component('ImagePreview', ImagePreview)
+
+// 全局混入工具方法
+Vue.mixin(ruoyiMixin)
 
 Vue.use(directive)
 Vue.use(plugins)

@@ -1,5 +1,10 @@
 <template>
   <div class="login">
+    <!-- 装饰性元素 -->
+    <div class="decoration-dot"></div>
+    <div class="decoration-dot"></div>
+    <div class="decoration-dot"></div>
+
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
       <h3 class="title">{{title}}</h3>
       <el-form-item prop="username">
@@ -159,36 +164,174 @@ export default {
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+// 清新绿/青色系变量
+$color-teal: #14b8a6;
+$color-emerald: #10b981;
+$color-cyan: #06b6d4;
+$color-light-teal: #5eead4;
+$color-white: rgba(255, 255, 255, 0.95);
+
 .login {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../assets/images/login-background.jpg");
-  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, $color-emerald 0%, $color-teal 50%, $color-cyan 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+
+  // 装饰性圆形元素
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &::before {
+    width: 500px;
+    height: 500px;
+    top: -150px;
+    left: -100px;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  &::after {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    right: -80px;
+    animation: float 18s ease-in-out infinite reverse;
+  }
+
+  // 添加额外的装饰圆点
+  .decoration-dot {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .decoration-dot:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: 15%;
+    right: 15%;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .decoration-dot:nth-child(2) {
+    width: 120px;
+    height: 120px;
+    bottom: 20%;
+    left: 10%;
+    animation: pulse 10s ease-in-out infinite 2s;
+  }
+
+  .decoration-dot:nth-child(3) {
+    width: 60px;
+    height: 60px;
+    top: 30%;
+    left: 20%;
+    animation: pulse 12s ease-in-out infinite 4s;
+  }
 }
+
+// 渐变动画
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+// 浮动动画
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+// 脉冲动画
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.08;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.15;
+  }
+}
+
 .title {
   margin: 0px auto 30px auto;
   text-align: center;
-  color: #707070;
+  color: #374151;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .login-form {
-  border-radius: 6px;
-  background: #ffffff;
+  border-radius: 16px;
+  background: $color-white;
   width: 400px;
-  padding: 25px 25px 5px 25px;
-  z-index: 1;
+  padding: 40px 35px 15px 35px;
+  z-index: 10;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15),
+              0 12px 24px -8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+
   .el-input {
-    height: 38px;
+    height: 44px;
     input {
-      height: 38px;
+      height: 44px;
+      border-radius: 8px;
+      border-color: #e5e7eb;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: $color-teal;
+        box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+      }
     }
   }
   .input-icon {
-    height: 39px;
-    width: 14px;
+    height: 44px;
+    width: 16px;
     margin-left: 2px;
+    color: #9ca3af;
+  }
+
+  // 登录按钮样式
+  .el-button {
+    height: 44px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background: linear-gradient(135deg, $color-teal 0%, $color-emerald 100%);
+    border: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(20, 184, 166, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 }
 .login-tip {
@@ -212,10 +355,12 @@ export default {
   bottom: 0;
   width: 100%;
   text-align: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.9);
   font-family: Arial;
   font-size: 12px;
   letter-spacing: 1px;
+  z-index: 5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 .login-code-img {
   height: 38px;
