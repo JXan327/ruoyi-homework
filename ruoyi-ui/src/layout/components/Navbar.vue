@@ -148,6 +148,7 @@ export default {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  border-bottom: 2px solid #14b8a6;
   display: flex;
   align-items: center;
   // padding: 0 8px;
@@ -230,6 +231,8 @@ export default {
           width: 30px;
           height: 30px;
           border-radius: 50%;
+          background: #e0f2f1;
+          object-fit: cover;
         }
 
         .user-nickname{

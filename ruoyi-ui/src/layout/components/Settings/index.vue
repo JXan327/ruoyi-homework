@@ -333,7 +333,7 @@ export default {
         height: 100%;
         padding-top: 15px;
         padding-left: 24px;
-        color: #1890ff;
+        color: #14b8a6;
         font-weight: 700;
         font-size: 14px;
       }
@@ -396,7 +396,7 @@ export default {
     }
     b:last-child {
       width: 30%;
-      background: #1b2a47;
+      background: #0f2027;
       position: absolute;
       height: 100%;
       top: 0;
@@ -408,11 +408,11 @@ export default {
       border-radius: 4px 4px 0 0;
       display: block;
       height: 30%;
-      background: #1b2a47;
+      background: #0f2027;
     }
     b:last-child {
       width: 30%;
-      background: #1b2a47;
+      background: #0f2027;
       position: absolute;
       height: 70%;
       border-radius: 0 0 0 4px;
@@ -422,7 +422,7 @@ export default {
     b:first-child {
       display: block;
       height: 30%;
-      background: #1b2a47;
+      background: #0f2027;
       border-radius: 4px 4px 0 0;
     }
   }

@@ -458,9 +458,9 @@ $tags-bar-height: 34px;
     }
   }
   &:not(.tags-view-container--chrome) .tags-view-wrapper .tags-view-item.active {
-    background-color: #42b983;
+    background-color: #14b8a6;
     color: #fff;
-    border-color: #42b983;
+    border-color: #14b8a6;
     &::before {
       content: '';
       background: #fff;

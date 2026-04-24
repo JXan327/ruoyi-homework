@@ -59,7 +59,6 @@ export default {
   position: relative;
   height: 50px;
   line-height: 50px;
-  background: #2b2f3a;
   text-align: center;
   overflow: hidden;
 
